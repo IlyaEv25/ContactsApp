@@ -1,0 +1,18 @@
+{
+  "db": 
+  [
+    {"id" : 0, "contacts": [{"id": 0, "name" : "contact1"}, {"id": 1, "name" : "contact2"}]}
+  ],
+
+  "users":
+  [
+    {
+        "id": 0, 
+        "name": "admin",
+        "password": "admin",
+        "data": "nothing"
+    }
+
+  ]
+
+}

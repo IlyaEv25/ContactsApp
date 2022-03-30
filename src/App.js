@@ -1,33 +1,26 @@
 import React  from "react";
 import { connect } from 'react-redux'
 
-const Name = (name) => (
+
+const Contact = ({name}) => (
     <div>{name}</div>
 );
 
-const Date = (date) => (
-    <div>{date}</div>
-);
 
-const Number = (number) => (
-    <div>{number}</div>
-);
-
-const App = (({name, number, date}) => {
-    return 
-    (
-        <div>
-            <Name name = {name}/>
-            <Date date = {date}/>
-            <Number number = {number} />
-        </div>
-    )
-});
+const App = ({contacts, id}) => {
+    if (id != undefined)
+        return (
+            <div>
+                {contacts.map((contact) => <Contact name = {contact.name} key = {contact.id}/>)}
+            </div>
+        )
+    else
+        return (null);
+};
 
 const mapStateToProps = (state) => ({
-    name: state.name,
-    date: state.date,
-    number: state.number
-  })
+    "contacts": state.contacts,
+    "id" : state.id
+  });
 
 export default connect(mapStateToProps)(App);
