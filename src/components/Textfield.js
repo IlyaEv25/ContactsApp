@@ -11,6 +11,7 @@ export default function Textfield({Text, text_id, onChange})
             text = new MDCTextField(text);
         console.log(document)
     })
+    
     return(
         <label className={"mdc-text-field mdc-text-field--filled" + " " + text_id}>
             <span className="mdc-text-field__ripple"></span>

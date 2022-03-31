@@ -1,6 +1,6 @@
 import { SET_TOKEN, SET_LIST } from "../actions";
 
-var server = "http://localhost:3000/";
+var server = "http://192.168.1.104:3000/";
 
 export const getUsers = async () => {
     var users = await fetch(server + "users").then(data => data.json());
