@@ -1,0 +1,13 @@
+@use "../node_modules/@material/list";
+
+@use "../node_modules/@material/fab";
+
+@include fab.core-styles;
+
+@include list.deprecated-core-styles;
+
+.contacts {
+  display: block;
+  margin: 20px auto;
+  width: 700px;
+}

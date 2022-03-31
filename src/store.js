@@ -1,45 +1,20 @@
 
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import { getContacts, getUsers } from './api/db_api';
 import { SET_TOKEN, SET_LIST } from './actions';
+import getInitInfo from './reduces/getInitInfo';
+import listOps from './reduces/listOps';
+import initialState from './initialState';
 
-const reducer = (state = {"contacts" : []}, action) => {
-
-    switch (action.type)
-    {
-        case SET_LIST:
-            return {
-                ...state,
-                "contacts": action.list
-            }
-        case SET_TOKEN:
-            return {
-                ...state,
-                "id": action.id
-            }
-        case "NAME":
-            return {
-                ...state,
-                "name": action.name
-            };
-        case "DATE":
-            return {
-                ...state,
-                "date": action.date
-            };
-        case "NUMBER":
-            return {
-                ...state,
-                "number": action.number
-            };
-        default:
-            return state;
-    }
-}
+const reducer = combineReducers({
+    id: getInitInfo,
+    ListData: listOps
+})
 
 
 export const store = createStore(
-  reducer
+  reducer,
+  initialState
 );
 
 export const getTokenID = async (username, password) => {

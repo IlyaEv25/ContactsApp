@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import './Login.scss'
 import { useNavigate } from 'react-router-dom'
 import {MDCTextField} from '@material/textfield';
+import {MDCRipple} from '@material/ripple';
 
 const Login = ({id}) => {
 
@@ -12,15 +13,17 @@ const Login = ({id}) => {
     useEffect( () => {
             var username = document.querySelector('.username');
             var password = document.querySelector('.password');
+            var fabRipple = document.querySelector('.mdc-fab');
             if (password && username)
             {
                 username = new MDCTextField(username);
                 password = new MDCTextField(password);
+                fabRipple = new MDCRipple(fabRipple);
             }
-                console.log(document)
+            console.log(document)
     });
     
-    if (id == undefined)
+    if (id == -1)
         return (
         <div className = 'Login'>
             <h1>Login</h1>
@@ -48,7 +51,11 @@ const Login = ({id}) => {
                             <span className="mdc-floating-label" id="password-label">Password</span>
                             <span className="mdc-line-ripple"></span>
                         </label>
-                        <button type = "submit">Login</button>
+                        <button className="mdc-fab mdc-fab--extended">
+                            <div className="mdc-fab__ripple"></div>
+                            <span className="material-icons mdc-fab__icon">+</span>
+                            <span className="mdc-fab__label">Login</span>
+                        </button>
                     </form>
         </div>
         );
@@ -58,4 +65,4 @@ const Login = ({id}) => {
 }
 
 
-export default connect((state) => ({"id" : state.id}))(Login);
+export default connect((state) => ({id : state.id}))(Login);
