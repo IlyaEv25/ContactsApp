@@ -10,9 +10,14 @@ const Login = ({id}) => {
     let navigate = useNavigate();
 
     useEffect( () => {
-        const username = new MDCTextField(document.querySelector('.username'));
-        const password = new MDCTextField(document.querySelector('.password'));
-        console.log(document)
+            var username = document.querySelector('.username');
+            var password = document.querySelector('.password');
+            if (password && username)
+            {
+                username = new MDCTextField(username);
+                password = new MDCTextField(password);
+            }
+                console.log(document)
     });
     
     if (id == undefined)
