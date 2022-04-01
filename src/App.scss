@@ -1,24 +1,28 @@
-@use "../node_modules/@material/fab";
-
 @use "../node_modules/@material/top-app-bar/mdc-top-app-bar";
 @import "@material/icon-button/mdc-icon-button";
 @import "@material/list/mdc-list";
-//@include icon-button.core-styles;
 
-@include fab.core-styles;
 
-//@include list.deprecated-core-styles;
-
-.bar {
-
+.Header {
+  display:flex;
+  position: relative;
 }
 
-.add {
-    margin-right: 10%;
+.Searchbar {
+  display:block;
 }
 
-.contacts {
+.app {
   display: block;
-  margin: 20px auto;
-  width: 700px;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
+
+.newentry {
+  display:block;
+}
+// .contact_n,
+// .contact_d {
+
+// }

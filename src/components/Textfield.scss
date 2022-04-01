@@ -1,10 +1,1 @@
-@use "../../node_modules/@material/fab";
 @import "../../node_modules/@material/textfield/mdc-text-field";
-
-@include fab.core-styles;
-
-.text {
-  display: flex;
-  margin: 20px auto;
-  width: 900px;
-}

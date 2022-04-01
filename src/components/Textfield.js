@@ -1,7 +1,6 @@
-import './Login.scss'
+import './Textfield.scss'
 import {useEffect} from 'react'
 import {MDCTextField} from '@material/textfield';
-import {MDCRipple} from '@material/ripple';
 
 export default function Textfield({Text, text_id, onChange})
 {
@@ -13,11 +12,11 @@ export default function Textfield({Text, text_id, onChange})
     })
     
     return(
-        <label className={"mdc-text-field mdc-text-field--filled" + " " + text_id}>
-            <span className="mdc-text-field__ripple"></span>
-            <input type="text" className="mdc-text-field__input" aria-labelledby="text-label" name="text" onChange = {onChange}/>
-            <span className="mdc-floating-label" id="text-label">{Text}</span>
-            <span className="mdc-line-ripple"></span>
-        </label>
+            <label className={"mdc-text-field mdc-text-field--filled" + " " + text_id}>
+                <span className="mdc-text-field__ripple"></span>
+                <input type="text" className="mdc-text-field__input" aria-labelledby="text-label" name="text" onChange = {onChange}/>
+                <span className="mdc-floating-label" id="text-label">{Text}</span>
+                <span className="mdc-line-ripple"></span>
+            </label>
     )
 }

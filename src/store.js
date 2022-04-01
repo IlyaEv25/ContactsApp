@@ -5,10 +5,12 @@ import { SET_TOKEN, SET_LIST } from './actions';
 import getInitInfo from './reduces/getInitInfo';
 import listOps from './reduces/listOps';
 import initialState from './initialState';
+import addEntry from './reduces/addEntry';
 
 const reducer = combineReducers({
     id: getInitInfo,
-    ListData: listOps
+    ListData: listOps,
+    addEntry: addEntry
 })
 
 

@@ -9,8 +9,9 @@ import {
   } from "react-router-dom";
 import './index.css';
 import * as Store from "./store.js";
-import Login from './components/Login'
 import App from './App'
+import Login from './components/Login'
+//import App from './App'
 
 
 render(
