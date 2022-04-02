@@ -1,12 +1,10 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import * as Store from "../store.js";
 import { connect } from 'react-redux'
-import './Login.scss'
+import './index.scss'
 import { useNavigate } from 'react-router-dom'
-import {MDCTextField} from '@material/textfield';
-import {MDCRipple} from '@material/ripple';
-import Textfield from './Textfield.js';
-import Button from './Button.js'; 
+import Textfield from '../components/Textfield.js';
+import Button from '../components/Button.js'; 
 
 const Login = ({id}) => {
 

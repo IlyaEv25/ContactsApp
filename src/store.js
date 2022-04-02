@@ -2,10 +2,10 @@
 import { createStore, combineReducers } from 'redux'
 import { getContacts, getUsers } from './api/db_api';
 import { SET_TOKEN, SET_LIST } from './actions';
-import getInitInfo from './reduces/getInitInfo';
-import listOps from './reduces/listOps';
+import getInitInfo from './reducers/getInitInfo';
+import listOps from './reducers/listOps';
 import initialState from './initialState';
-import addEntry from './reduces/addEntry';
+import addEntry from './reducers/addEntry';
 
 const reducer = combineReducers({
     id: getInitInfo,

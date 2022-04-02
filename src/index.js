@@ -10,8 +10,7 @@ import {
 import './index.css';
 import * as Store from "./store.js";
 import App from './App'
-import Login from './components/Login'
-//import App from './App'
+import Login from './Login'
 
 
 render(
