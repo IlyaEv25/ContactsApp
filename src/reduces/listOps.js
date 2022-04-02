@@ -36,7 +36,11 @@ export default function listOps(state = initialState.ListData, action) {
         case ADD_ELEMENT:
             return {
                 ...state,
-                contacts: [...state.contacts, action.element]
+                contacts: [...state.contacts, {
+                    id : state.contacts.length,
+                    name: action.name,
+                    data: action.data
+                }]
             }
 
         case EDIT_ELEMENT:

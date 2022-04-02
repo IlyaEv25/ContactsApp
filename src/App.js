@@ -5,7 +5,7 @@ import {MDCList} from '@material/list';
 import {MDCRipple} from '@material/ripple';
 import Textfield from './components/Textfield';
 import Button from './components/Button';
-import { UPDATE_SEARCH_LIST, CHANGE_SEARCH_WORD, DEL_ELEMENT, ADD_ENTRY } from './actions';
+import { UPDATE_SEARCH_LIST, CHANGE_SEARCH_WORD, DEL_ELEMENT, ADD_ENTRY, ADD_ELEMENT } from './actions';
 
 import {MDCTopAppBar} from '@material/top-app-bar';
 
@@ -50,16 +50,20 @@ const SearchBar = ({onSearch}) => {
     return <Textfield Text = "Searchbar" text_id = "searchbar" onChange = {onSearch}/>
 }
 
-const NewEntry = ({addEntry}) => {
+const NewEntry = ({addEntry, add}) => {
     if (addEntry)
     {
         return (
         <li className="mdc-list-item newentry" tabIndex="0">
-            <span className="mdc-list-item__ripple"></span>
-            <span className="mdc-list-item__primary-text"><Textfield Text = "ContactName" text_id ="contact_n"/></span>
-            <span className="mdc-list-item__secondary-text"><Textfield Text = "ContactData" text_id ="contact_d"/></span>
-            {/* <Button text = "D" text_id = "dButton" onClick = {delete_el}/> */}
+            <form onSubmit = {add}>
+                <span className="mdc-list-item__ripple"></span>
+                <span className="mdc-list-item__primary-text"><Textfield Text = "ContactName" text_id ="contact_n"/></span>
+                <span className="mdc-list-item__secondary-text"><Textfield Text = "ContactData" text_id ="contact_d"/></span>
+                {/* <Button text = "D" text_id = "dButton" onClick = {delete_el}/> */}
+                <Button text = "Add" text_id = "addButton"/>
+            </form>
         </li>
+        
         )
     }
     else
@@ -67,19 +71,19 @@ const NewEntry = ({addEntry}) => {
 }
 
 
-const Contact = ({name, delete_el}) => (
+const Contact = ({contact, delete_el}) => (
     <li className="mdc-list-item" tabIndex="0">
     <span className="mdc-list-item__ripple"></span>
     <span className="mdc-list-item__text">
-      <span className="mdc-list-item__primary-text">{name}</span>
-      <span className="mdc-list-item__secondary-text">Secondary text</span>
+      <span className="mdc-list-item__primary-text">{contact.name}</span>
+      <span className="mdc-list-item__secondary-text"> {contact.data}</span>
     </span>
     <Button text = "D" text_id = "dButton" onClick = {delete_el}/>
   </li>
 );
 
 
-const App = ({contacts, id, addEntry, dispatch, search}) => {
+const App = ({contacts, id, addEntry, dispatch, search, add}) => {
 
     useEffect(() => {
         var list = document.querySelector('.mdc-list');
@@ -101,8 +105,8 @@ const App = ({contacts, id, addEntry, dispatch, search}) => {
                 <Header onClick = {() => dispatch({type: ADD_ENTRY})} onSearch = {search}/>
                 <div className = "list">
                     <ul className="mdc-list--two-line--dense">
-                        <NewEntry addEntry = {addEntry}/>
-                        {contacts.map((contact) => <Contact name = {contact.name} key = {contact.id} delete_el = {() => {
+                        <NewEntry addEntry = {addEntry} add = {add}/>
+                        {contacts.map((contact) => <Contact contact = {contact} key = {contact.id} delete_el = {() => {
                             dispatch({type: DEL_ELEMENT, id : contact.id})
                             dispatch({type: UPDATE_SEARCH_LIST})
                         }}/>)}
@@ -125,6 +129,16 @@ const dispatchToSearch = (dispatch) => ({
         dispatch({type: CHANGE_SEARCH_WORD, searchWord : e.target.value})
         dispatch({type: UPDATE_SEARCH_LIST})
         console.log(e.target.value)
+    },
+    add: (e) => {
+        e.preventDefault();
+        var contact_name = e.target[0].value;
+        var contact_data = e.target[1].value;
+
+        dispatch({type : ADD_ELEMENT, name : contact_name, data: contact_data});
+        dispatch({type: UPDATE_SEARCH_LIST});
+
+        console.log(contact_name, contact_data);
     },
     dispatch
 })

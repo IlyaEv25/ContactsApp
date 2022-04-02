@@ -1,7 +1,7 @@
 {
   "db": 
   [
-    {"id" : 0, "contacts": [{"id": 0, "name" : "contact1"}, {"id": 1, "name" : "contact2"}]}
+    {"id" : 0, "contacts": [{"id": 0, "name" : "contact1", "data" : "Something written here"}, {"id": 1, "name" : "contact2", "data" : "Something written here too"}]}
   ],
 
   "users":
