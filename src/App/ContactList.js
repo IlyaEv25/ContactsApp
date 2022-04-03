@@ -18,11 +18,9 @@ const ContactList = ({contacts, delete_element}) => {
     })
 
     return (
-        <div className = "list">
-            <ul className="mdc-list--two-line--dense">
-                {contacts.map((contact) => <Contact contact = {contact} key = {contact.id} delete_el = {delete_element(contact.id)}/>)}
-            </ul>
-        </div>
+        <ul className="mdc-list--two-line--dense list">
+            {contacts.map((contact) => <Contact contact = {contact} key = {contact.id} delete_el = {delete_element(contact.id)}/>)}
+        </ul>
     )
 }
 
