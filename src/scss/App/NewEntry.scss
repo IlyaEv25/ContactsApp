@@ -1,0 +1,38 @@
+//@use "@material/list/mdc-list";
+
+.newentry{
+    padding-inline-start: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 1%;
+    margin-left: 25%;
+    margin-right: 25%;
+    width : 60%;
+  }
+  
+  .preform
+  {
+    border: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    width : 100%;
+  } 
+
+  .form {
+    width: 75%;
+  }
+  
+  .c_n {
+    padding-top: 2%;
+  }
+  
+  .c_d {
+    padding-top: 1%;
+  }
+  
+  .addB {
+    margin-left:15%;
+    display: flex;
+    align-items: center;
+  }

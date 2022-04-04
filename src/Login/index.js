@@ -1,7 +1,6 @@
 import React from 'react'
 import * as Store from "../store.js";
 import { connect } from 'react-redux'
-import './index.scss'
 import { useNavigate } from 'react-router-dom'
 import Textfield from '../components/Textfield.js';
 import Button from '../components/Button.js'; 

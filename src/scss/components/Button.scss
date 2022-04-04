@@ -1,0 +1,8 @@
+
+@use "@material/fab";
+@include fab.core-styles;
+
+.but {
+    @include fab.ink-color(white);
+    @include fab.container-color(black);
+}

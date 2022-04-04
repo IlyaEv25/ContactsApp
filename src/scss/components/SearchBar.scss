@@ -1,0 +1,14 @@
+
+@use "@material/textfield/mixins";
+
+.searchbar {
+    @include mixins.fill-color(white);
+    @include mixins.disabled-fill-color(black);
+    @include mixins.label-color(rgb(0, 0, 0));
+    @include mixins.caret-color(black);
+    @include mixins.hover-bottom-line-color(black);
+    @include mixins.shape-radius(0px);
+    width: 19%;
+    margin-top: 1.5%;
+    margin-left: 1%;
+}

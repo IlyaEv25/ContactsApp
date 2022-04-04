@@ -7,10 +7,11 @@ import {
     Route,
     Link
   } from "react-router-dom";
-import './index.css';
 import * as Store from "./store.js";
 import App from './App'
 import Login from './Login'
+
+import './scss/styles.scss';
 
 
 render(

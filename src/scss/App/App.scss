@@ -1,0 +1,36 @@
+// @use "../../node_modules/@material/top-app-bar/mdc-top-app-bar";
+// @use "../../node_modules/@material/fab";
+
+// @use "@material/list/mdc-list";
+// @use "@material/textfield/mdc-text-field";
+// @use "@material/icon-button/mdc-icon-button";
+
+// @include fab.core-styles;
+
+// .Header {
+//   display:flex;
+//   position: relative;
+// }
+
+// .Searchbar {
+//   display:block;
+// }
+@use "ContactList";
+@use "Header";
+@use "NewEntry";
+
+.app {
+  display: block;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+
+// .newentry {
+//   display:block;
+// }
+// // .contact_n,
+// // .contact_d {
+
+// // }

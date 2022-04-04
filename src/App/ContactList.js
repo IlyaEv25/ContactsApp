@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
-import './ContactList.scss'
+//import './ContactList.scss'
 import {MDCList} from '@material/list';
 import {MDCRipple} from '@material/ripple';
 import Contact from '../components/Contact'

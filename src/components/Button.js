@@ -1,4 +1,4 @@
-import './Button.scss'
+//import './Button.scss'
 import {useEffect} from 'react'
 import {MDCRipple} from '@material/ripple';
 
@@ -14,9 +14,9 @@ export default function Button({text, text_id, onClick}) {
 
 
     return (
-        <button className={"mdc-fab mdc-fab--extended" + " " + text_id} onClick = {onClick}>
+        <button className={"mdc-fab mdc-fab--extended but" + " " + text_id} onClick = {onClick}>
             <div className="mdc-fab__ripple"></div>
-            <span className="mdc-fab__label">{text}</span>
+            <span className="mdc-fab__label text">{text}</span>
         </button>
     )
 }

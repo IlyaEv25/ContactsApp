@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './Button';
-import './Contact.scss'
+//import './Contact.scss'
 
 const Contact = ({contact, delete_el}) => (
     <li className="mdc-list-item Item" tabIndex="0">
@@ -9,7 +9,7 @@ const Contact = ({contact, delete_el}) => (
           <span className="mdc-list-item__primary-text">{contact.name}</span>
           <span className="mdc-list-item__secondary-text"> {contact.data}</span>
         </div>
-        <Button text = "D" text_id = "dButton" onClick = {delete_el}/>
+        <Button text = "Delete" text_id = "dButton" onClick = {delete_el}/>
     </li>
 );
 
