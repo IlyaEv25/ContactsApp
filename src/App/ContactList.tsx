@@ -6,8 +6,12 @@ import {MDCRipple} from '@material/ripple';
 import Contact from '../components/Contact'
 import { UPDATE_SEARCH_LIST, DEL_ELEMENT} from '../actions';
 
+type ContactListProps = {
+    contacts: Array<Contact>,
+    delete_element : React.MouseEventHandler<HTMLButtonElement>
+}
 
-const ContactList = ({contacts, delete_element}) => {
+const ContactList = ({contacts, delete_element}: ContactListProps) => {
     useEffect(() => {
         var list = document.querySelector('.mdc-list');
         if (list)
@@ -28,7 +32,7 @@ const mapStateToProps = (state) => ({
     contacts: state.ListData.showList
   });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch : Function) => ({
     delete_element: (id) => () => {
         dispatch({type: DEL_ELEMENT, id : id})
         dispatch({type: UPDATE_SEARCH_LIST})

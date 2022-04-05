@@ -2,13 +2,18 @@
 import {useEffect} from 'react'
 import {MDCTextField} from '@material/textfield';
 
-export default function Textfield({Text, text_id, onChange})
+type TextfieldProps = {
+    Text: string,
+    text_id: string,
+    onChange: React.ChangeEventHandler<HTMLInputElement>
+}
+
+export default function Textfield({Text, text_id, onChange} : TextfieldProps) : JSX.Element
 {
     useEffect(() => {
-        var text = document.querySelector("." + text_id);
+        var text: Element = document.querySelector("." + text_id);
         if (text)
-            text = new MDCTextField(text);
-        console.log(document)
+            new MDCTextField(text);
     })
     
     return(

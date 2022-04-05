@@ -5,7 +5,7 @@ import {MDCRipple} from '@material/ripple';
 type ButtonProps = {
     text : string,
     text_id: string,
-    onClick: Function
+    onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export default function Button({text, text_id, onClick}: ButtonProps) : JSX.Element | null {
