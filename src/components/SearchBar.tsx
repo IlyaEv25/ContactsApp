@@ -1,4 +1,3 @@
-//import './SearchBar.scss'
 import {useEffect} from 'react'
 import {MDCTextField} from '@material/textfield';
 
@@ -10,7 +9,7 @@ type SearchProps = {
 export default function SearchBar({onSearch} : SearchProps) : JSX.Element
 {
     useEffect(() => {
-        var text: Element = document.querySelector(".searchbar");
+        var text: Element | null = document.querySelector(".searchbar");
         if (text)
             new MDCTextField(text);
         console.log(document)

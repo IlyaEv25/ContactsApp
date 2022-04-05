@@ -1,11 +1,17 @@
 import React from 'react'
-import * as Store from "../store.js";
+import * as Store from "../store";
 import { connect } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import Textfield from '../components/Textfield.js';
-import Button from '../components/Button.js'; 
+import Textfield from '../components/Textfield';
+import Button from '../components/Button'; 
 
-const Login = ({id}) => {
+import {State} from '../state';
+
+type LoginProps = {
+    id: number
+}
+
+const Login = ({id} : LoginProps) => {
 
     let navigate = useNavigate();
     
@@ -15,8 +21,12 @@ const Login = ({id}) => {
                 <h1>Login</h1>
                         <form onSubmit={async (e) => {
                                 e.preventDefault();
-                                var username = e.target[0].value;
-                                var password = e.target[1].value;
+                                const target = e.target as typeof e.target & {
+                                    '0': { value: string };
+                                    '1': { value: string };
+                                  };
+                                var username: string = target[0].value;
+                                var password = target[1].value;
                                 var id = await Store.getTokenID(username, password);
                                 if (id != -1)
                                 {
@@ -37,4 +47,4 @@ const Login = ({id}) => {
 }
 
 
-export default connect((state) => ({id : state.id}))(Login);
+export default connect((state : State) : LoginProps => ({id : state.id}))(Login);

@@ -1,17 +1,17 @@
-//import './Button.scss'
+
 import {useEffect} from 'react'
 import {MDCRipple} from '@material/ripple';
 
 type ButtonProps = {
     text : string,
     text_id: string,
-    onClick: React.MouseEventHandler<HTMLButtonElement>
+    onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export default function Button({text, text_id, onClick}: ButtonProps) : JSX.Element | null {
 
     useEffect(() => {
-        var fabRipple: Element = document.querySelector('.' + text_id);
+        var fabRipple: Element | null = document.querySelector('.' + text_id);
         if (fabRipple)
         {
             new MDCRipple(fabRipple);

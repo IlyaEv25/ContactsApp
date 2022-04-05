@@ -5,7 +5,11 @@ import Header from './Header';
 import NewEntry from './NewEntry';
 import ContactList from './ContactList';
 
-const App = ({id}) => {
+import {State} from '../state';
+
+
+
+const App = ({id} : {id: number}) => {
 
     if (id != -1)
         return (
@@ -19,7 +23,7 @@ const App = ({id}) => {
         return (null);
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state : State) => ({
     id : state.id
   });
 

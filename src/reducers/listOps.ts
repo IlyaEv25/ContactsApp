@@ -1,8 +1,9 @@
 import {DEL_ELEMENT, ADD_ELEMENT, EDIT_ELEMENT, SET_LIST, CHANGE_SEARCH_WORD, UPDATE_SEARCH_LIST} from "../actions";
-import initialState from "../initialState";
+import initialState, {ListData} from "../state";
+import { AnyAction } from "redux";
 
 
-export default function listOps(state = initialState.ListData, action) {
+export default function listOps(state: ListData = initialState.ListData, action: AnyAction): ListData {
 
     switch (action.type)
     {
@@ -17,14 +18,14 @@ export default function listOps(state = initialState.ListData, action) {
             var searchWord = state.searchWord;
             return {
                 ...state,
-                showList: list.filter(contact => contact.name.indexOf(searchWord) == 0)
+                searchList: list.filter(contact => contact.name.indexOf(searchWord) == 0)
             }
 
         case SET_LIST:
             return {
                 ...state,
                 contacts: action.list,
-                showList: action.list
+                searchList: action.list
             }
 
         case DEL_ELEMENT:

@@ -4,10 +4,9 @@ import { Provider } from 'react-redux'
 import {
     BrowserRouter as Router,
     Routes,
-    Route,
-    Link
+    Route
   } from "react-router-dom";
-import * as Store from "./store.js";
+import * as Store from "./store";
 import App from './App'
 import Login from './Login'
 

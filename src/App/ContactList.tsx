@@ -1,23 +1,25 @@
 import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
-//import './ContactList.scss'
 import {MDCList} from '@material/list';
 import {MDCRipple} from '@material/ripple';
 import Contact from '../components/Contact'
 import { UPDATE_SEARCH_LIST, DEL_ELEMENT} from '../actions';
 
+import {State} from '../state';
+import {Dispatch}from 'redux'
+
 type ContactListProps = {
     contacts: Array<Contact>,
-    delete_element : React.MouseEventHandler<HTMLButtonElement>
+    delete_element : (id: number) => React.MouseEventHandler<HTMLButtonElement>
 }
 
 const ContactList = ({contacts, delete_element}: ContactListProps) => {
     useEffect(() => {
-        var list = document.querySelector('.mdc-list');
+        var list: Element | null = document.querySelector('.mdc-list');
         if (list)
         {
-            list = new MDCList(list);
-            list = list.listElements.map((listItemEl) => new MDCRipple(listItemEl));
+            var Mlist : MDCList = new MDCList(list);
+            Mlist.listElements.map((listItemEl) => new MDCRipple(listItemEl));
         }
     })
 
@@ -28,12 +30,12 @@ const ContactList = ({contacts, delete_element}: ContactListProps) => {
     )
 }
 
-const mapStateToProps = (state) => ({
-    contacts: state.ListData.showList
+const mapStateToProps = (state : State) => ({
+    contacts : state.ListData.searchList
   });
 
-const mapDispatchToProps = (dispatch : Function) => ({
-    delete_element: (id) => () => {
+const mapDispatchToProps = (dispatch : Dispatch) => ({
+    delete_element: (id : number) => () => {
         dispatch({type: DEL_ELEMENT, id : id})
         dispatch({type: UPDATE_SEARCH_LIST})
     }

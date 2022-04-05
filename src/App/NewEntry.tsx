@@ -1,5 +1,4 @@
 
-//import "./NewEntry.scss"
 import React from 'react'
 import { connect } from 'react-redux'
 import Textfield from '../components/Textfield';
@@ -7,11 +6,19 @@ import Button from '../components/Button';
 
 import { UPDATE_SEARCH_LIST,  ADD_ELEMENT } from '../actions';
 
-const NewEntry = ({addEntry, add}) => {
+import {State} from '../state';
+import {Dispatch}from 'redux'
+
+type NewEntryProps = {
+    addEntry: boolean,
+    add: React.FormEventHandler<HTMLFormElement>
+}
+
+const NewEntry = ({addEntry, add} : NewEntryProps) => {
     if (addEntry)
     {
         return (
-        <div className="mdc-list-item newentry" tabIndex="0">
+        <div className="mdc-list-item newentry" tabIndex={0}>
             <form onSubmit = {add} className = "preform">
                 <div className='form'>
                     <div className="mdc-list-item__ripple"></div>
@@ -30,11 +37,15 @@ const NewEntry = ({addEntry, add}) => {
         return null;
 }
 
-const dispatchToProps = (dispatch) => ({
+const dispatchToProps = (dispatch: Dispatch) : {add : React.FormEventHandler<HTMLFormElement>} => ({
     add: (e) => {
         e.preventDefault();
-        var contact_name = e.target[0].value;
-        var contact_data = e.target[1].value;
+        const target = e.target as typeof e.target & {
+            '0': { value: string };
+            '1': { value: string };
+          };
+        var contact_name: string = target[0].value;
+        var contact_data = target[1].value;
 
         dispatch({type : ADD_ELEMENT, name : contact_name, data: contact_data});
         dispatch({type: UPDATE_SEARCH_LIST});
@@ -43,4 +54,4 @@ const dispatchToProps = (dispatch) => ({
     }
 })
 
-export default connect((state) => ({addEntry : state.addEntry}), dispatchToProps)(NewEntry);
+export default connect((state : State) => ({addEntry : state.addEntry}), dispatchToProps)(NewEntry);

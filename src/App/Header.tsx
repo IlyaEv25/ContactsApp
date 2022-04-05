@@ -5,30 +5,33 @@ import SearchBar from '../components/SearchBar';
 import { UPDATE_SEARCH_LIST, CHANGE_SEARCH_WORD, ADD_ENTRY } from '../actions';
 import {MDCTopAppBar} from '@material/top-app-bar';
 
-//import './Header.scss'
+import {Dispatch}from 'redux'
 
-const Header = ({add, search}) => {
+type HeaderProps = {
+    add: React.MouseEventHandler<HTMLButtonElement>,
+    search: React.ChangeEventHandler<HTMLInputElement>
+}
+
+const Header = ({add, search} : HeaderProps) => {
 
     useEffect(() => {
-        var topAppBarElement = document.querySelector('.mdc-top-app-bar');
+        var topAppBarElement: Element | null = document.querySelector('.mdc-top-app-bar');
         if (topAppBarElement)
-            var topAppBar = new MDCTopAppBar(topAppBarElement);
+            new MDCTopAppBar(topAppBarElement);
     })
 
     return (
         <div className="mdc-top-app-bar Header">
             <div className="mdc-top-app-bar__row">
                 <SearchBar onSearch = {search}/>
-                {/* <section className="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                </section> */}
-                <section className="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar" style = {{"margin-top": "1.9%"}}>
+                <section className="mdc-top-app-bar__section mdc-top-app-bar__section--align-end button-div" role="toolbar">
                     <Button text = "Add" text_id = "addButton" onClick = {add}/>
                 </section>
             </div>
         </div>
 )}
 
-const dispatchToProps = (dispatch) => ({
+const dispatchToProps = (dispatch: Dispatch) : HeaderProps => ({
     search : (e) => {
         dispatch({type: CHANGE_SEARCH_WORD, searchWord : e.target.value})
         dispatch({type: UPDATE_SEARCH_LIST})
