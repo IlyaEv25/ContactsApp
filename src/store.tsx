@@ -6,11 +6,13 @@ import getInitInfo from './reducers/getInitInfo';
 import listOps from './reducers/listOps';
 import initialState from './state';
 import addEntry from './reducers/addEntry';
+import editEntry from './reducers/editEntry';
 
 const reducer = combineReducers({
     id: getInitInfo,
     ListData: listOps,
-    addEntry: addEntry
+    addEntry: addEntry,
+    editIndex: editEntry
 })
 
 

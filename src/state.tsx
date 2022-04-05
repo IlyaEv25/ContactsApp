@@ -13,7 +13,8 @@ export type ListData = {
 export type State = {
     id : number,
     ListData : ListData,
-    addEntry: boolean
+    addEntry: boolean,
+    editIndex: number
 }
 
 
@@ -24,7 +25,8 @@ const initialState: State = {
         searchWord : "", 
         searchList : []
      },
-    addEntry : false
+    addEntry : false,
+    editIndex : -1
 }
 
 export {initialState as default};

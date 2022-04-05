@@ -2,14 +2,14 @@ import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
 import {MDCList} from '@material/list';
 import {MDCRipple} from '@material/ripple';
-import Contact from '../components/Contact'
+import Contact, {ContactT} from '../components/Contact'
 import { UPDATE_SEARCH_LIST, DEL_ELEMENT} from '../actions';
 
 import {State} from '../state';
 import {Dispatch}from 'redux'
 
 type ContactListProps = {
-    contacts: Array<Contact>,
+    contacts: Array<ContactT>,
     delete_element : (id: number) => React.MouseEventHandler<HTMLButtonElement>
 }
 

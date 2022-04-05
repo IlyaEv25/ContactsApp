@@ -1,7 +1,8 @@
 {
   "db": 
   [
-    {"id" : 0, "contacts": [{"id": 0, "name" : "contact1", "data" : "Something written here"}, {"id": 1, "name" : "contact2", "data" : "Something written here too"}]}
+    {"id" : 0, "contacts": [{"id": 0, "name" : "contact1", "data" : "Something written here"}, {"id": 1, "name" : "contact2", "data" : "Something written here too"}]},
+    {"id" : 1, "contacts": [{"id": 0, "name" : "contact4", "data" : "Something written here"}, {"id": 1, "name" : "contact3", "data" : "Something written here too"}]}
   ],
 
   "users":
@@ -11,6 +12,13 @@
         "name": "admin",
         "password": "admin",
         "data": "nothing"
+    },
+
+    {
+      "id": 1, 
+      "name": "Ilya",
+      "password": "Ilya",
+      "data": "nothing"
     }
 
   ]
