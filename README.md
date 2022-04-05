@@ -13,6 +13,7 @@ Install json-server globally:
 npm install -g json-server
 ```
 
+Go to app folder
 ```
 cd ContactApp
 ```
@@ -30,4 +31,4 @@ npm install
 npm run
 ```
 
-To add users and contacts add them to json file.
+To add users and contacts add them to db.json file.
