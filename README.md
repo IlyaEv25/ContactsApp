@@ -28,7 +28,7 @@ Run App:
 
 ```
 npm install
-npm run
+npm start
 ```
 
 To add users and contacts add them to db.json file.
